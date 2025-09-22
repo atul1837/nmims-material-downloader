@@ -1,7 +1,7 @@
 {
-  "name": "chrome-ext-starter",
-  "displayName": "Chrome Extension Starter",
-  "description": "Get started with building your dream Chrome extension effortlessly! Our starter kit combines the power of cutting-edge technologies like Vite, TypeScript, React, CRX, Tailwind CSS, and DaisyUI, making extension development a breeze.",
+  "name": "nmims-pdf-downloader",
+  "displayName": "NMIMS PDF/PPT Downloader",
+  "description": "Download PDF and PowerPoint files from NMIMS Student Portal with ease. Automatically detects and provides download options for course materials.",
   "private": true,
   "version": "1.0.0",
   "type": "module",

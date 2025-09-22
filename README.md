@@ -1,29 +1,68 @@
-# 🚀 Chrome Extension Starter Kit 
+# NMIMS PDF/PPT Downloader
 
-See [my realworld demo](https://chromewebstore.google.com/detail/suivi-social-media-influe/goooadfoacpehibpinikfnphknmmgbph) using this starter
+A Chrome extension that automatically detects and downloads PDF and PowerPoint files from the NMIMS Student Portal.
 
-Get started with building your dream Chrome extension effortlessly! Our starter kit combines the power of cutting-edge technologies like Vite, TypeScript, React, CRX, Tailwind CSS, and DaisyUI, making extension development a breeze.
+## Features
 
-Why choose this template? 🤔 Well, there are countless templates out there, but if you're eyeing Tailwind for your Chrome extension, you're in luck! 🎉 With this template, diving into extension development becomes a breeze – no configuration needed! 💻
+- **Automatic Detection**: Monitors network requests and iframes for PDF/PPT files
+- **Floating Download Button**: Shows a clean, non-intrusive download button in the bottom-left corner when files are detected
+- **One-Click Download**: Download detected files with a single click
+- **Domain Restricted**: Only works on the NMIMS Student Portal for security and privacy
+- **File Type Support**: Supports PDF, PPT, and PPTX files
 
-## Key Features
-- 🛠️ **Vite**: for lightning-fast development and hot module replacement.
-- 🧰 **TypeScript**: for type safety and enhanced productivity.
-- ⚛️ **React**: for building dynamic and interactive UI components.
-- 📦 **CRX**: for easy packaging and distribution of your extension.
-- 🎨 **Tailwind CSS**: for hassle-free styling, including seamless integration in content scripts.
-- 🌼 **DaisyUI**: for beautiful and customizable UI elements right out of the box.
+## Installation
 
-## Why Choose Our Starter Kit?
-- 🚀 **Streamlined Setup**: Say goodbye to configuration headaches. Get up and running in minutes.
-- ⚡ **Optimized Performance**: Leverage Vite's speed and Tailwind CSS's efficiency for blazing-fast development.
-- 👩‍💻 **Developer-Friendly**: TypeScript support and React components empower developers to build feature-rich extensions with ease.
+1. Build the extension:
+   ```bash
+   pnpm install
+   pnpm build
+   ```
 
-## 🚀 Get Started
-- 1️⃣ Clone the repo: git clone https://github.com/rezasohrabi/chrome-ext-starter.git
-- 2️⃣ Install dependencies: pnpm install
-- 3️⃣ Start development: pnpm dev
-- 4️⃣ Build for production: pnpm build
+2. Load the extension in Chrome:
+   - Open Chrome and go to `chrome://extensions/`
+   - Enable "Developer mode" in the top right
+   - Click "Load unpacked" and select the `dist` folder
 
-### 🤝 How to Contribute
-We welcome and appreciate contributions to improve this project. Whether you would like to fix a bug, introduce a new feature, or enhance the documentation, your contributions are highly valued.
+## Usage
+
+1. Navigate to the NMIMS Student Portal: `https://studentzone-ncdoe.nmims.edu/studentportalapp/courseDetails`
+2. Open any course content that contains PDF or PowerPoint files
+3. When a file is detected, a download button will appear in the bottom-left corner
+4. Click the "Download" button to save the file to your computer
+
+## How It Works
+
+The extension uses three main components:
+
+1. **Background Script**: Monitors network requests to CloudFront URLs for PDF/PPT files
+2. **Content Script**: Displays the download UI and handles user interactions
+3. **Manifest**: Defines permissions and restricts the extension to NMIMS domains only
+
+## Permissions
+
+The extension requires the following permissions:
+- `activeTab`: To interact with the current tab
+- `storage`: To store extension data
+- `downloads`: To download files
+- `webRequest`: To monitor network requests for file detection
+
+## Security
+
+- The extension only works on NMIMS Student Portal domains
+- Network monitoring is restricted to CloudFront URLs used by NMIMS
+- No data is collected or transmitted to external servers
+
+## Development
+
+To modify the extension:
+
+1. Make changes to the source files in the `src` directory
+2. Run `pnpm build` to rebuild
+3. Reload the extension in Chrome extensions page
+
+## File Structure
+
+- `src/manifest.ts` - Extension configuration
+- `src/background/index.ts` - Background script for network monitoring
+- `src/content/Content.tsx` - React component for the download UI
+- `src/content/index.*.tsx` - Content script entry points

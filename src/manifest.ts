@@ -32,13 +32,14 @@ export default defineManifest({
     48: 'icon48.png',
     128: 'icon128.png',
   },
-  permissions: ['activeTab', 'storage'],
+  permissions: ['activeTab', 'storage', 'downloads', 'webRequest', 'webNavigation'],
+  host_permissions: ['https://studentzone-ncdoe.nmims.edu/*', 'https://d1u9l98yeftf1r.cloudfront.net/*'],
   content_scripts: [
     {
       js: isDev
         ? ['src/content/index.dev.tsx']
         : ['src/content/index.prod.tsx'],
-      matches: ['<all_urls>'],
+      matches: ['https://studentzone-ncdoe.nmims.edu/*'],
     },
   ],
   web_accessible_resources: [
