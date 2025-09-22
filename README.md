@@ -2,6 +2,24 @@
 
 A Chrome extension that automatically detects and downloads PDF and PowerPoint files from the NMIMS Student Portal.
 
+## 🚀 Quick Installation (Recommended)
+
+**For most users, this is the easiest way to install the extension:**
+
+1. **Download the pre-built extension**:
+   - Go to the [Releases](https://github.com/atul1837/nmims-material-downloader/releases) page
+   - Download the latest `dist.zip` file
+
+2. **Extract the zip file**:
+   - Extract the downloaded `dist.zip` file to any folder on your computer
+   - You'll get a `dist` folder containing the extension files
+
+3. **Install in Chrome**:
+   - Open Chrome and go to `chrome://extensions/`
+   - Enable "Developer mode" in the top right corner
+   - Click "Load unpacked" and select the extracted `dist` folder
+   - The extension will be installed and ready to use!
+
 ## Features
 
 - **Automatic Detection**: Monitors network requests and iframes for PDF/PPT files
@@ -9,19 +27,6 @@ A Chrome extension that automatically detects and downloads PDF and PowerPoint f
 - **One-Click Download**: Download detected files with a single click
 - **Domain Restricted**: Only works on the NMIMS Student Portal for security and privacy
 - **File Type Support**: Supports PDF, PPT, and PPTX files
-
-## Installation
-
-1. Build the extension:
-   ```bash
-   pnpm install
-   pnpm build
-   ```
-
-2. Load the extension in Chrome:
-   - Open Chrome and go to `chrome://extensions/`
-   - Enable "Developer mode" in the top right
-   - Click "Load unpacked" and select the `dist` folder
 
 ## Usage
 
@@ -52,7 +57,32 @@ The extension requires the following permissions:
 - Network monitoring is restricted to CloudFront URLs used by NMIMS
 - No data is collected or transmitted to external servers
 
-## Development
+## 🔧 Development Installation
+
+**For developers who want to build from source:**
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/atul1837/nmims-material-downloader.git
+   cd nmims-material-downloader
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   pnpm install
+   ```
+
+3. **Build the extension**:
+   ```bash
+   pnpm build
+   ```
+
+4. **Load the extension in Chrome**:
+   - Open Chrome and go to `chrome://extensions/`
+   - Enable "Developer mode" in the top right
+   - Click "Load unpacked" and select the `dist` folder
+
+## 🔄 Development Workflow
 
 To modify the extension:
 
